@@ -53,18 +53,17 @@
   let students = [];
   let inputs = document.getElementsByClassName("form-control");
 
-  function Student(ad, soyad, email, dogumgunu, bal){
+  function Student(ad, soyad, email, dogumgunu){
     this.Name = ad;
     this.Surname = soyad;
     this.Email = email;
     this.Birthday = dogumgunu;
-    this.Score = bal;
     this.info = function(){
-        return this.Name + " " + this.Surname + " " + this.Email + " " + this.Birthday + " - " + this.Score;
+        return this.Name + " " + this.Surname + " " + this.Email + " " + this.Birthday;
     };
 }
 function addStudent(){
-     let s = new Student(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value, inputs[4].value);
+     let s = new Student(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value);
      students.push(s);
      reset();
      showStudents();
@@ -87,7 +86,6 @@ function showStudents(){
           <td>${students[i].Surname}</td>
           <td>${students[i].Email}</td>
           <td>${students[i].Birthday}</td>
-          <td>${students[i].Scores}</td>
       </tr>`
   }
 
@@ -112,18 +110,9 @@ function sort(property){
   showStudents();
 }
 
-function sortByAge(){
-  students.sort(function(a, b){
-      return a.Age - b.Age;
-  });
 
-  showStudents();
-}
 
-function randomize(){
-  students.sort(function(a, b){
-      return (0.5 - Math.random());
-  });
 
-  showStudents();
-}
+
+
+ 
